@@ -14,7 +14,7 @@
     }
 
     // Deletes/removes an item
-    function removeItem (id: number) {
+    function removeItem () {
         dispatch('removeItem', { id });
     }
 </script>
@@ -34,7 +34,7 @@
             </button>
         </div>
         <div class="column is-one-quarter">
-            <button on:click="{ removeItem(id) }" class="button is-danger">
+            <button on:click="{ removeItem }" class="button is-danger">
                 Remove
             </button>
         </div>

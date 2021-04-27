@@ -23,7 +23,7 @@
 	}
 
 	// Removes item from list
-	function deleteItem (event) {
+	function deleteItem (event: CustomEvent) {
 		items = items.filter(el => el.id !== event.detail.id);
 		items = items;
 	}
