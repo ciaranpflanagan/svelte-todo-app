@@ -1,8 +1,12 @@
 <script lang="ts">
+    import { createEventDispatcher } from "svelte";
+
     export let id: number;
     export let title: string;
     export let description: string = 'No description given';
     export let completed: boolean = false;
+
+    const dispatch = createEventDispatcher();
 
     // Completes Item
     function completeItem () {
@@ -11,7 +15,7 @@
 
     // Deletes/removes an item
     function removeItem (id: number) {
-        console.log('remove item', id);
+        dispatch('removeItem', { id });
     }
 </script>
 

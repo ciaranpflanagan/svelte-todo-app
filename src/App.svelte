@@ -21,6 +21,12 @@
 		items.push(item); // Add item to array of items
 		items = items; // Update each
 	}
+
+	// Removes item from list
+	function deleteItem (event) {
+		items = items.filter(el => el.id !== event.detail.id);
+		items = items;
+	}
 </script>
 
 <section class="section">
@@ -28,7 +34,19 @@
 		<div class="columns">
 			<div class="column is-half is-offset-one-quarter main-column">
 				{#each items as item}
-					<Item id={item.id} title={item.title} description={item.description} completed={item.completed} />
+					<Item 
+						id={item.id}
+						title={item.title}
+						description={item.description}
+						completed={item.completed}
+						on:removeItem={deleteItem}
+					/>
+				{:else}
+					<div class="card mb-4">
+					<div class="card-content">
+						<span>No Todo Items!</span>
+					</div>
+					</div>
 				{/each}
 			</div>
 		</div>
